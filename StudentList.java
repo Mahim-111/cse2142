@@ -53,20 +53,8 @@ public class StudentList {
             System.out.println(Constants.DataLoad);
         } else if (args[Constants.ZERO].contains(Constants.ShowCount)) {
             System.out.println(Constants.Loading);
-            char characters[] = fileContents.toCharArray();
-            boolean in_word = false;
-            int count = Constants.ZERO;
-            for (char character : characters) {
-                if (character == Constants.Space) {
-                    if (!in_word) {
-                        count++;
-                        in_word = true;
-                    } else {
-                        in_word = false;
-                    }
-                }
-            }
-            System.out.println(count + Constants.WordFound);
+            String words[] = fileContents.split(Constants.StudentEntryDelimiter);
+            System.out.println(words.length + Constants.WordFound);
             System.out.println(Constants.DataLoad);
         }
     }
