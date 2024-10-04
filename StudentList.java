@@ -8,7 +8,7 @@ public class StudentList {
     public static void main(String[] args) {
 
         //Check arguments
-        if (args == null || args.length != Constants.ONE) {
+        if (ArgumentCheck(args)) {
             System.out.println(Constants.Arguments);
             return;
         }
@@ -76,5 +76,16 @@ public class StudentList {
         } catch (Exception e) {
         }
 
+    }
+
+    public static boolean ArgumentCheck(String[] args) {
+        if (args == null || args.length != Constants.ONE) {
+            return true;
+        } else if (args.length == Constants.ONE && !args[Constants.ZERO].equals(Constants.ShowAll)
+                && !args[Constants.ZERO].equals(Constants.ShowCount) && !args[Constants.ZERO].equals(Constants.ShowRandom) && !args[Constants.ZERO].equals(Constants.FindEntry)
+                && !args[Constants.ZERO].equals(Constants.AddEntry)) {
+            return true;
+        }
+        return false;
     }
 }

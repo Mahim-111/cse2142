@@ -23,7 +23,7 @@ public class Constants {
 
     public static final String Found = " found at index: ";
 
-    public static final String NotFound = " does not exist.";
+    public static final String NotFound = "Does not exist.";
 
     public static final String WordFound = " word(s) found ";
 
