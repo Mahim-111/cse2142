@@ -36,13 +36,19 @@ public class StudentList {
         } else if (args[Constants.ZERO].contains(Constants.FindEntry)) {
             System.out.println(Constants.Loading);
             String words[] = fileContents.split(Constants.StudentEntryDelimiter);
-            boolean done = false;
+            //boolean done = false;
+            int indexLocation = Constants.NEGATIVE_ONE;
             String argValue = args[Constants.ZERO].substring(Constants.ONE);
-            for (int index = Constants.ZERO; index < words.length && !done; index++) {
-                if (words[index].equals(argValue)) {
-                    System.out.println(Constants.FoundIt);
-                    done = true;
+            for (int index = Constants.ZERO; index < words.length; index++) {
+                if (words[index].trim().equals(argValue.trim())) {
+                    indexLocation = index;
+                    break;
                 }
+            }
+            if (indexLocation >= Constants.ZERO) {
+                System.out.println(Constants.FoundIt);
+            } else {
+                System.out.println(Constants.NotFound);
             }
             System.out.println(Constants.DataLoad);
         } else if (args[Constants.ZERO].contains(Constants.ShowCount)) {
